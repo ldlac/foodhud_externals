@@ -3,10 +3,11 @@
 ## Requirements
 
 - **EssentialMode**
+- **foodhud**
 
 ## Credits
-# vdk_inventory https://github.com/vodkhard/vdk_inventory
-# gb_needs https://github.com/gabsgold/gb_needs
+### vdk_inventory https://github.com/vodkhard/vdk_inventory
+### gb_needs https://github.com/gabsgold/gb_needs
 
 ## Installation
 
