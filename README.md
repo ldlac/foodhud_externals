@@ -65,8 +65,8 @@ function use(item)
             -- Any other type? Drugs??????
             Toxicated()
             Citizen.Wait(7000)
-            ClearPedTasks(ped);
-            reality()
+            ClearPedTasks(GetPlayerPed(-1))
+            Reality()
         end
     end
 end
@@ -76,29 +76,28 @@ end
 
 --------------------------------------------------------
 function Toxicated()
-          Citizen.Wait(5000)
-          DoScreenFadeOut(1000)
-          Citizen.Wait(1000)
-          ClearPedTasksImmediately(GetPlayerPed(-1))
-          SetTimecycleModifier("spectator5")
-          SetPedMotionBlur(GetPlayerPed(-1), true)
-          SetPedMovementClipset(GetPlayerPed(-1), "MOVE_M@DRUNK@SLIGHTLYDRUNK", true)
-          SetPedIsDrunk(GetPlayerPed(-1), true)
-          DoScreenFadeIn(1000)
-        end
+	  Citizen.Wait(5000)
+	  DoScreenFadeOut(1000)
+	  Citizen.Wait(1000)
+	  ClearPedTasksImmediately(GetPlayerPed(-1))
+	  SetTimecycleModifier("spectator5")
+	  SetPedMotionBlur(GetPlayerPed(-1), true)
+	  SetPedMovementClipset(GetPlayerPed(-1), "MOVE_M@DRUNK@SLIGHTLYDRUNK", true)
+	  SetPedIsDrunk(GetPlayerPed(-1), true)
+	  DoScreenFadeIn(1000)
+end
 
-        function reality()
-          Citizen.Wait(50000)
-          DoScreenFadeOut(1000)
-          Citizen.Wait(1000)
-          DoScreenFadeIn(1000)
-          ClearTimecycleModifier()
-          ResetScenarioTypesEnabled()
-          ResetPedMovementClipset(GetPlayerPed(-1), 0)
-          SetPedIsDrunk(GetPlayerPed(-1), false)
-          SetPedMotionBlur(GetPlayerPed(-1), false)
-          Citizen.Trace("Going back to reality\n")
-        end
+function Reality()
+  Citizen.Wait(50000)
+  DoScreenFadeOut(1000)
+  Citizen.Wait(1000)
+  DoScreenFadeIn(1000)
+  ClearTimecycleModifier()
+  ResetScenarioTypesEnabled()
+  ResetPedMovementClipset(GetPlayerPed(-1), 0)
+  SetPedIsDrunk(GetPlayerPed(-1), false)
+  SetPedMotionBlur(GetPlayerPed(-1), false)
+end
 
 ```
 
