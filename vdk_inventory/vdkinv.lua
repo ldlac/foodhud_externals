@@ -14,6 +14,7 @@ RegisterNetEvent("gui:getItems")
 RegisterNetEvent("player:receiveItem")
 RegisterNetEvent("player:looseItem")
 RegisterNetEvent("player:sellItem")
+RegisterNetEvent("player:getQuantity")
 
 -- handles when a player spawns either from joining or after death
 AddEventHandler("playerSpawned", function()
@@ -25,6 +26,12 @@ end)
 AddEventHandler("gui:getItems", function(THEITEMS)
     ITEMS = {}
     ITEMS = THEITEMS
+end)
+
+AddEventHandler("player:getQuantity", function(itemId)
+    local _amount = 0
+    _amount = ITEMS[tonumber(itemId)].quantity
+    TriggerServerEvent("player:cbgetQuantity", _amount)
 end)
 
 AddEventHandler("player:receiveItem", function(item, quantity)

@@ -21,14 +21,22 @@ AddEventHandler('gabs:menu', function(fooditem)
 		end)
 end)
 
+local getQuantityval = 0
+
+RegisterServerEvent('player:cbgetQuantity')
+AddEventHandler("player:cbgetQuantity", function(cbamount)
+	getQuantityval = cbamount
+end)
+
 RegisterServerEvent('gabs:menuvdk')
 AddEventHandler('gabs:menuvdk', function(fooditem)
 		TriggerEvent('es:getPlayerFromId', source, function(user)
 			local player = user.identifier
-			local executed_query = MySQL:executeQuery("SELECT SUM(quantity) as total FROM user_inventory WHERE user_id = '@username'", { ['@username'] = player })
-			local result = MySQL:getResults(executed_query, { 'total' })
-			local total = result[1].total
-			if (total + fooditem[2] <= 64) then
+			TriggerClientEvent("player:getQuantity", fooditem[1])
+			-- local executed_query = MySQL:executeQuery("SELECT SUM(quantity) as total FROM user_inventory WHERE user_id = '@username'", { ['@username'] = player })
+			-- local result = MySQL:getResults(executed_query, { 'total' })
+			-- local total = result[1].total
+			if (getQuantityval + fooditem[2] <= 64) then
 				if (user.money >= fooditem[3]) then
 					user:removeMoney(fooditem[3])
 					TriggerClientEvent("player:receiveItem", source, fooditem[1], fooditem[2])
