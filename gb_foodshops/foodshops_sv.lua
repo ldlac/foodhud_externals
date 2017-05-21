@@ -1,11 +1,8 @@
 require "resources/essentialmode/lib/MySQL"
 MySQL:open("127.0.0.1", "gta5_gamemode_essential", "root", "PASSWORD")
 
-local wc = 100
-
 RegisterServerEvent('gabs:menu')
-AddEventHandler('gabs:menu', function(fooditem, vdkinventory)
-	if (vdkinventory == false) then
+AddEventHandler('gabs:menu', function(fooditem)
 		TriggerEvent('es:getPlayerFromId', source, function(user)
 			for k,v in ipairs(fooditems) do
 				if (v.name == fooditem) then
@@ -22,7 +19,10 @@ AddEventHandler('gabs:menu', function(fooditem, vdkinventory)
 				end
 			end
 		end)
-	else
+end)
+
+RegisterServerEvent('gabs:menuvdk')
+AddEventHandler('gabs:menuvdk', function(fooditem)
 		TriggerEvent('es:getPlayerFromId', source, function(user)
 			local player = user.identifier
 			local executed_query = MySQL:executeQuery("SELECT SUM(quantity) as total FROM user_inventory WHERE user_id = '@username'", { ['@username'] = player })
@@ -39,7 +39,6 @@ AddEventHandler('gabs:menu', function(fooditem, vdkinventory)
 				TriggerClientEvent('chatMessage', source, "", {0, 0, 200}, "Vous n'avez pas de place dans votre inventaire.")
 			end
 		end)
-	end
 end)
 
 function splitString(self, delimiter)

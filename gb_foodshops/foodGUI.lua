@@ -186,8 +186,8 @@ end
 function buymenu(fooditem)
 	if (vdkinventory == false) then
 		Texte("Vous avez mangé un(e) ~g~".. fooditem, 5000)
-		TriggerServerEvent('gabs:menu', fooditem, vdkinventory)
+		TriggerServerEvent('gabs:menu', fooditem)
 	else
-		TriggerServerEvent('gabs:menu', fooditem, vdkinventory)
+		TriggerServerEvent('gabs:menuvdk', fooditem)
 	end
 end
