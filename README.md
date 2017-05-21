@@ -3,11 +3,35 @@
 ## Requirements
 
 - **EssentialMode**
-- **foodhud**
+- **foodhud** https://drive.google.com/file/d/0B4xRHUr3JifOS0RLTmhhdFNaaEE/view
 
 ## Credits
 ### vdk_inventory https://github.com/vodkhard/vdk_inventory
 ### gb_needs https://github.com/gabsgold/gb_needs
+
+## Changelog
+- **2017-05-19 V0.1**
+Released first version
+
+- **2017-05-19 V0.1.1**
+Added a config file!
+Added more informations in the post.
+Now in a zip file, easier to install.
+
+- **2017-05-20 V0.2**
+Added GlobalMultiplier in the config file!
+Added animations for Drinking and Eating.
+Now you die when you reach 51% of your health (Regeneration was preventing the death of the player)
+When you die, your needs are replenish
+
+- **2017-05-20 V0.3**
+Added External resources that I modified to be able to integrate my foodhud. **vdk_inventory**, **gb_needs**
+There is some shop missing in gb_needs. If you someone want to contribute, you are welcome to.
+
+- **2017-05-20 V0.3.1**
+Release a modified version of frfuel to prevent it from crashing on client start. (Main link)
+Fixed (Trying to) the DataReader mysql error causing by gb_foodshops (github)
+Moved changedlog on github.
 
 ## Installation
 
