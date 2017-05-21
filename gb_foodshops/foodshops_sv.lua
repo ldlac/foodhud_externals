@@ -33,6 +33,7 @@ AddEventHandler('gabs:menuvdk', function(fooditem)
 		TriggerEvent('es:getPlayerFromId', source, function(user)
 			local player = user.identifier
 			TriggerClientEvent("player:getQuantity", fooditem[1])
+			-- Old code that was kind of causing some problems.
 			-- local executed_query = MySQL:executeQuery("SELECT SUM(quantity) as total FROM user_inventory WHERE user_id = '@username'", { ['@username'] = player })
 			-- local result = MySQL:getResults(executed_query, { 'total' })
 			-- local total = result[1].total
